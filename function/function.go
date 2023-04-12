@@ -7,6 +7,7 @@ import (
 )
 
 func main() {
+	// 関数について
 
 	// os.Argsでコマンドライン引数を利用できる
 	// 例えばgo run function.go 3 5
