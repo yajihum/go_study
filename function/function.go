@@ -31,6 +31,21 @@ func main() {
 	// ↓の例ではmulを無視できる
 	sum4, _ := calc(os.Args[1], os.Args[2])
 	fmt.Println("Sum:", sum4)
+
+	// Goは値渡しのプログラミング言語
+	// 関数に値を渡すたびに、Go がその値を受け取ってローカル コピー (メモリ内の新しい変数) を作成する
+	// ↓の例では、firstNameで出力されるのは"John"
+	firstName := "John"
+	updateName(firstName)
+	fmt.Println(firstName)
+
+	// じゃあ参照渡しをしたい場合はポインターを使用する
+	// ポインターとは別の変数のメモリアドレスを格納する変数
+	// 関数へのポインターを送信する場合は、値を渡すのではなく、メモリ アドレスを渡す
+	firstName2 := "John"
+	// &は変数のアドレスを指し、関数に渡している
+	updateName2(&firstName2)
+	fmt.Println(firstName2)
 }
 
 // カスタム関数
@@ -56,4 +71,15 @@ func calc(number1 string, number2 string) (sum int, mul int) {
 	sum = int1 + int2
 	mul = int1 * int2
 	return
+}
+
+func updateName(name string) {
+	name = "David"
+}
+
+// *をつけることでstring型から*string型に変換
+// 文字列へのポインター
+func updateName2(name *string) {
+	// 変数を使う時も*を追加
+	*name = "David"
 }
