@@ -14,10 +14,10 @@ type Employee2 struct {
 	ManagerID int
 }
 
-type Contractor struct {
-	Person2
-	CompanyID int
-}
+// type Contractor struct {
+// 	Person2
+// 	CompanyID int
+// }
 
 func struct1() {
 	employee2 := Employee2{
